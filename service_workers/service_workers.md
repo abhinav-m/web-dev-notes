@@ -52,3 +52,32 @@ if ("serviceWorker" in navigator) {
 > Note: Your service worker **functions like a proxy server**, allowing you to modify requests and responses, replace them with items from its own cache, and more.
 
 > Note: One great thing about service workers is that if you use feature detection like we’ve shown above, browsers that don’t support service workers can just use your app online in the normal expected fashion. Furthermore, if you use AppCache and SW on a page, browsers that don’t support SW but do support AppCache will use that, and browsers that support both will ignore the AppCache and let SW take over.
+
+## Service workers basic architecture:
+
+1. The service worker URL is fetched and registered via `serviceWorkerContainer.register()`.
+2. If successful, the service worker is executed in a ServiceWorkerGlobalScope; this is basically a special kind of worker context, running off the main script execution thread, with no DOM access.
+3. The service worker is now ready to process events.
+4. Installation of the worker is attempted when service worker-controlled pages are accessed subsequently. An Install event is always the first one sent to a service worker (this can be used to start the process of populating an IndexedDB, and caching site assets). This is really the same kind of procedure as installing a native or Firefox OS app — making everything available for use offline.
+5. When the oninstall handler completes, the service worker is considered installed.
+   Next is activation. When the service worker is installed, it then receives an activate event. **The primary use of onactivate is for cleanup of resources used in previous versions of a Service worker script**.
+6. The Service worker will now control pages, but only those opened after the register() is successful. i.e. a document starts life with or without a Service worker and maintains that for its lifetime. So documents will have to be reloaded to actually be controlled.
+
+![Lifecycle](https://mdn.mozillademos.org/files/12636/sw-lifecycle.png)
+
+## Why is my service worker failing to register?
+
+This could be for the following reasons:
+
+1. You are not running your application through HTTPS.
+2. The path to your service worker file is not written correctly — **it needs to be written relative to the origin, not your app’s root directory.** In our example, the worker is at https://mdn.github.io/sw-test/sw.js, and the app’s root is https://mdn.github.io/sw-test/. **But the path needs to be written as /sw-test/sw.js, not /sw.js.**
+3. The service worker being pointed to is on a different origin to that of your app. This is also not allowed.
+
+![ServiceWorkerRequirements](https://mdn.mozillademos.org/files/12630/important-notes.png)
+
+Also note:
+
+- The service worker will only catch requests from clients under the service worker's scope.
+- The max scope for a service worker is the location of the worker.
+- If your server worker is active on a client being served with the Service-Worker-Allowed header, you can specify a list of max scopes for that worker.
+- In Firefox, Service Worker APIs are hidden and cannot be used when the user is in private browsing mode.
