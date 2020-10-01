@@ -433,3 +433,22 @@ Google search console -> Fix bugs (Error count reduced) -> improve traffics
 - submit sitemaps to google
 
 AMP errors - super important , need to fix in real time, if fails impact is immediately known, page fails
+
+URLS can be inspected in google web search tool
+
+Bing webmaster tools can be used to do the same:
+
+- Can control time to crawl ( control server load / crawl budget)
+
+Data can be analysed with GA and Google Data Studios
+
+- Podcast manager - google : can be used to understand working of podcast
+- Rich results - for markup
+- amp validator - for amp
+- Lighthouse / Page speed - for page speed analyis
+
+Webmaster can show data after 1 day / few hours, own tool can be created to scan seo daily,to catch errors , warnings etc
+Alerting system - for robots / sitemaps etc can be created for proper monitoring
+robots file monitor tool can be created
+
+> Content behind a paywall can still be analysed with ldjson bots, should be utilized
