@@ -354,3 +354,82 @@ Eg are
 2. 302 -> Temporary eg product sold out
 
 > Avoid redirect chains A->B->C is WRONG (Max value is 3, but should be avoided), https -> ensure Avoid tailing slash
+
+Can be setup and seen on search console for errors.
+
+## Speed
+
+Low speed = High bounce rate ( inversely proportional and exponential)
+
+## Web vitals
+
+- LCP -> Largest contentful paint -> JS render slow times / CSS, Slow server response time Use caching , CDN etc
+- FID -> First input delay -> When can user interact first with a site when a user first interacts with a page vs when page responds
+- CLS -> Cumulative layout -> When page loads, the content can move which is a ranking factor ( also causes wrong clicks)
+
+## PWA
+
+> Deliver app like experience from mweb. Increased engagement, sessions etc
+
+## AMP
+
+Accelerted mobile pages - can have ads Prioritize what user wants on amp pages
+
+Faster loads
+Content loads first, then ads and images
+Google optimizes the reading/ delivery of amp pages
+
+## Vision:
+
+Tech Innovation -> Mobile First-> Organic growth -> Engagement
+
+Tech Load pages faster
+Product: Content relevancy
+Edit: Add appropriate content
+Seo: Mark / highlight content appropriately
+Business: Add revenue
+
+Growth.
+
+## Https checklist
+
+- All http should be redirected to https via 307
+- Hyperlinks / canonicals and all resources ( css js images) should be in https
+- sitemaps / rss feeds -> https
+
+Dont give HTTP links to bot.
+
+## Discover google
+
+- Personalized content in google mobile app and browser
+- Can monitor performance in search console
+- Comes on mobile browser/ has high CTR
+- Location based ( More regional / language listing)
+- Needs high quality images 1200px wide
+- Appear only if:
+  - Indexed by google
+  - Meets google news content policy
+
+## Key moments
+
+- Creating specific time points of a video for better UX to user
+
+## Web stories
+
+More images, less text, feels like instagram / more social
+can scroll through these
+
+## Tools to use
+
+Google tools
+AMP validators
+
+Google search console -> Fix bugs (Error count reduced) -> improve traffics
+
+- Check website performance
+- Find / resolve errors
+- Check how googlebot reads page
+- pagespeed usability issues
+- submit sitemaps to google
+
+AMP errors - super important , need to fix in real time, if fails impact is immediately known, page fails
